@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jasnoor Kaur | Portfolio</title>
+<link rel="stylesheet" href="port_css.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+ <script>
+    function updateTime() {
+      const timeElement = document.getElementById("time");
+      const now = new Date().toLocaleTimeString("en-IN", { hour12: true });
+      timeElement.textContent = now;
+    }
+    setInterval(updateTime, 1000);
+    document.addEventListener('DOMContentLoaded', updateTime);
+  </script>
+<body>
+  <div class="cursor-dot" id="cursor-dot"></div>
+<header class="main">
+  <nav>
+  <div class="nav-left">Jasnoor Kaur</div>
+
+  
+
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="nav-right">
+    <span class="clock-icon">🕒</span>
+    <span id="time"></span>
+  </div>
+</nav>
+
+
+  <header>
+    <p>Hi! I'm Jasnoor Kaur</p>
+   <p><p class="para">With 2 years of experience, I sometimes ask<br> the necessary difficult questions to create a <br>design </p><p class="web">A Web designer</p>
+  <p class="live"> lives by design</p>
+  </p>
+  </header>
+</header>
+ <section id="about" class="content-section">
+ <div class="section-header">
+  <h2 class="section-title">About Me</h2>
+  <div class="section-line"></div>
+</div>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Hello! I’m Jasnoor Kaur, a passionate and dedicated Web Developer with a Diploma in Computer Science and Engineering from Guru Nanak Dev Polytechnic College, Ludhiana. I have completed professional training in Web Development and Designing, where I worked extensively with technologies like HTML, CSS, JavaScript, Node.js, and Express.
+
+In addition to my frontend and full-stack experience, I also have strong skills in backend development using Python and PHP. I enjoy building responsive, user-friendly websites and applications, and I’m always eager to learn new technologies to enhance my capabilities.
+
+I’m looking forward to contributing my skills to meaningful projects and growing as a developer in the tech industry.</p>
+    </div>
+    <div class="about-image">
+      <img src="https://img.freepik.com/premium-photo/3d-cartoon-woman-office-worker-with-laptop-vibrant-colors_1106493-507444.jpg" alt="Jasnoor Kaur - Web Designer">
+    </div>
+  </div>
+</section>
+<section id="projects" class="project" >
+  <h2 class="section-title">Projects</h2>
+  <div class="section-line"></div>
+  <div class="project-card">
+    <div class="project-image">
+      <img src="port_furniture.png" alt="Furniture Store Website">
+    </div>
+    <div class="project-content">
+      <h3>Furniture Store Website</h3>
+      <p>A responsive e-commerce platform with features like cart, wishlist, checkout, and authentication built using Node.js, Express, and MySQL. The project included implementing secure payment gateways and product management systems.</p>
+    </div>
+  </div>
+  <div class="project-card">
+    <div class="project-image">
+      <img src="port_portfolio.png" alt="Student Portfolio">
+    </div>
+    <div class="project-content">
+      <h3>Student Portfolio</h3>
+      <p>A dynamic portfolio web application for students where all content is managed through a MySQL database. Implemented using Node.js with EJS templates, featuring customizable themes and real-time updates.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="section-line"></div>
+  <div class="experience-item">
+    <h3 class="company">Devologix Institute, Shimlapuri</h3>
+    <p class="role">Web Designing & Development Training (5th Semester)</p>
+    <p class="description">Worked on real projects involving HTML, CSS, JS, Node.js, and MySQL. Built both static and dynamic websites during this internship, gaining practical experience in full-stack development.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+   <div class="section-line"></div>
+   <p class="con">Have a project in mind or just want to say hello?
+Feel free to reach out — I’d love to hear from you!</p>
+  <p><b>Email:</b> jasnoorkaur1347@gmail.com</p>
+  <p><b>Phone:</b> +91-8847239506</p>
+  <p><b>LinkedIn:  </b><a href=" https://www.linkedin.com/in/jasnoor-kaur1347" target="_blank">https://www.linkedin.com/in/jasnoor-kaur1347</a></p>
+ <form action="https://formspree.io/f/mnnvyold" method="POST" style="width: 100%; max-width: 100%;">
+  <label for="name" style="display: block; margin-bottom: 6px; font-weight: bold;">Your Name:</label>
+  <input type="text" id="name" name="name" required 
+         style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+
+  <label for="email" style="display: block; margin-bottom: 6px; font-weight: bold;">Your Email:</label>
+  <input type="email" id="email" name="email" required 
+         style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+
+  <label for="message" style="display: block; margin-bottom: 6px; font-weight: bold;">Describe What You Need:</label>
+  <textarea id="message" name="message" rows="6" required 
+            style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;"></textarea>
+
+  <button type="submit" id="button">Submit</button>
+</form>
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const form = this;
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" }
+    }).then(response => {
+      if (response.ok) {
+        // ✅ SHOW POPUP ONLY ON SUCCESSFUL SUBMISSION
+        const popup = document.createElement("div");
+        popup.textContent = "✅ Your message has been sent successfully!";
+        popup.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #4caf50;
+          color: white;
+          padding: 15px;
+          border-radius: 5px;
+          z-index: 9999;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        `;
+        document.body.appendChild(popup);
+        setTimeout(() => popup.remove(), 4000);
+
+        form.reset();
+      } else {
+        alert("❌ There was an error. Please try again.");
+      }
+    });
+  });
+</script>
+
+
+</section>
+
+ <footer style="background-color: #1a1a1a; color: #ccc; padding: 60px 20px 30px; position: relative; bottom: 4rem;">
+  <div style="max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+    
+    <!-- Logo and Description -->
+    <div>
+      <h2 style="color: #fff; font-size: 24px;">Jasnoor Kaur</h2>
+      <p style="font-size: 14px; color: #aaa;">
+        Passionate web developer skilled in front-end and back-end development.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Navigation</h3>
+      <ul style="list-style: none; padding: 0; font-size: 14px;">
+        <li><a href="#about" style="color: #ccc; text-decoration: none;">About</a></li>
+        <li><a href="#projects" style="color: #ccc; text-decoration: none;">Projects</a></li>
+        <li><a href="#contact" style="color: #ccc; text-decoration: none;">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Skills / Services -->
+    <div>
+      <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Skills</h3>
+      <ul style="list-style: none; padding: 0; font-size: 14px;">
+        <li>HTML, CSS, JavaScript</li>
+        <li>Node.js, Express</li>
+        <li>Python, PHP</li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div>
+      <h3 style="color: #fff; font-size: 18px; margin-bottom: 10px;">Connect</h3>
+      <ul style="list-style: none; padding: 0; font-size: 14px;">
+        <li><a href="mailto:your@email.com" style="color: #ccc; text-decoration: none;">Email</a></li>
+        <li><a href="https://github.com/jasnoorkaur1347/Furniture-Website" target="_blank" style="color: #ccc; text-decoration: none;">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jasnoor-kaur1347" target="_blank" style="color: #ccc; text-decoration: none;">LinkedIn</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div style="text-align: center; padding-top: 30px; font-size: 13px; color: #666;">
+    © <%= new Date().getFullYear() %> Jasnoor Kaur. All rights reserved.
+  </div>
+</footer>
+
+
+  <script>
+    // Scroll animations
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+  
+  // Navbar scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+    
+    // Update scroll indicator
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (!scrollIndicator) return;
+    
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    scrollIndicator.style.width = scrolled + '%';
+  });
+  
+  // Create scroll indicator
+  const scrollIndicator = document.createElement('div');
+  scrollIndicator.className = 'scroll-indicator';
+  document.body.appendChild(scrollIndicator);
+  
+  // Enhanced cursor effects
+  const cursor = document.getElementById('cursor-dot');
+  
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  
+  document.querySelectorAll('a, button, .project-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('active');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+    });
+  });
+});
+  </script>
+
+</body>
+</html>

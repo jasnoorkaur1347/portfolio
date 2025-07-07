@@ -1,0 +1,1024 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: none;
+}
+
+body {
+  background-color: #f4ebbe;
+  color: #000;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+/* Remove the existing .main::before and replace with this */
+body::before {
+  content: '';
+  position: fixed; /* Changed from absolute to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #f4ebbe, #f9d56e, #f4ebbe, #f9d56e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: -2; /* Behind all content */
+  opacity: 0.7;
+}
+
+/* Add this to create a semi-transparent overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(244, 235, 190, 0.3);
+  z-index: -1;
+}
+
+/* Remove the existing .main::before rule */
+.main::before {
+  display: none;
+}
+
+/* Update the main content background to be transparent */
+.main {
+  background: transparent;
+}
+
+/* Update section backgrounds to be semi-transparent */
+section {
+ 
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Make sure content is above the background */
+section, nav, header, footer {
+  position: relative;
+  z-index: 1;
+}
+/* Animated gradient background for header */
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 130%;
+  background: linear-gradient(45deg, #f4ebbe, #f9d56e, #f4ebbe, #f9d56e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  padding: 0rem 2rem;
+  text-align: right;
+  position: relative;
+}
+
+header p {
+  font-size: 6.5rem;
+  margin-top: 10px;
+  font-weight: 300;
+  margin-right: 80px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header .para {
+  font-size: 21px;
+  margin-left: 20px;
+  text-align: left;
+  font-weight: 600;
+  animation: slideInLeft 1s ease-out 0.5s both;
+  position: relative;
+  top: 1rem;
+}
+
+header .web {
+  position: relative;
+  bottom: 140px;
+  left: 120px;
+  font-weight: 600;
+  animation: slideInRight 1s ease-out 0.7s both;
+}
+
+header .live {
+  text-align: center;
+  position: relative;
+  bottom: 180px;
+  animation: fadeIn 1s ease-out 1s both;
+
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+nav {
+  /* Keep the semi-transparent background for content readability */
+  background: rgba(244, 235, 190, 0.7); /* Slightly more transparent */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #f39c12;
+  position: relative; /* Essential for positioning ::before */
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Important to contain the pseudo-element */
+}
+/* Add this to create an animated gradient background for the nav */
+nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #f4ebbe, #f9d56e, #f4ebbe, #f9d56e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite; /* Use the same animation */
+  z-index: -1; /* Place it behind the nav's content */
+  opacity: 0.9; /* Adjust opacity as needed */
+}
+
+/* Ensure nav content is above the pseudo-element */
+.nav-left, .nav-links, .nav-right {
+  position: relative;
+  z-index: 1;
+}
+
+/* Your existing @keyframes gradientBG should remain the same */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+nav.scrolled {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem 2rem;
+  color: black;
+  font-weight: 600;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-left:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex: 8;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f39c12;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f39c12;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-right {
+  flex: 1;
+  text-align: right;
+  font-size: 1rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.clock-icon {
+  font-size: 1.2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-left {
+    position: static;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .clock-icon {
+    font-size: 1rem;
+  }
+}
+
+
+#about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 2vw 100px; /* Reduced top padding from 100px to 50px */
+  position: relative;
+  bottom: 190px;
+}
+.section-header {
+  margin-bottom: 30px; /* Reduced from 60px */
+}
+header {
+  padding: 0rem 2rem;
+  text-align: right;
+  position: relative;
+  min-height: auto; /* Ensure this isn't forcing extra space */
+}.main::before {
+  /* ... existing styles ... */
+  height: 130%; /* You can reduce this if needed */
+}
+
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #000; /* Black text color */
+}
+
+.section-line {
+  height: 3px;
+  width: 0;
+  background: #f39c12; /* Orange color */
+  position: relative;
+  margin-top: 10px;
+  animation: lineExpand 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes lineExpand {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+/* This one grows from center outward */
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* For a more dynamic effect with color transition */
+.section-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f39c12, #e74c3c);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.section-header:hover .section-line::after {
+  transform: scaleX(1);
+}
+/* About Section - Full Animated Styles */
+.about-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0px;
+  align-items: center;
+  perspective: 1200px;
+}
+
+.about-text {
+  padding-right: 40px;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: textSlideIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
+}
+
+.about-text p {
+  font-size: 1.45rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  position: relative;
+  bottom: 10px;
+}
+
+.about-image {
+  position: relative;
+  width:  105%;
+  max-width: 380px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+/* Hover Effects (No Flip) */
+.about-image:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.05) contrast(1.05);
+}
+
+/* Glow Border Animation */
+.about-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #f39c12, #e74c3c, #f39c12) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.about-image:hover::after {
+  opacity: 1;
+  animation: borderGlow 2s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle Tilt Effect */
+@keyframes subtleTilt {
+  0%, 100% { transform: rotateZ(0deg); }
+  25% { transform: rotateZ(0.5deg); }
+  75% { transform: rotateZ(-0.5deg); }
+}
+
+.about-image:hover {
+  animation: subtleTilt 3s ease-in-out infinite;
+}
+
+/* Depth Effect */
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: linear-gradient(45deg, #f39c12, #e74c3c);
+  opacity: 0;
+  border-radius: 8px;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  filter: blur(15px);
+  transform: translateZ(-20px);
+}
+
+.about-image:hover::before {
+  opacity: 0.2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-image:hover {
+    transform: translateY(-5px) scale(1.02);
+    animation: none;
+  }
+  
+  .about-image:hover img {
+    transform: scale(1.03);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes textSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes imageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px) rotateY(15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotateY(0); 
+  }
+  50% { 
+    transform: translateY(-12px) rotateY(2deg); 
+  }
+}
+
+/* Hover Effects */
+.about-image:hover {
+  animation: float 4s ease-in-out infinite;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow and Overlay Effects */
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #f39c12, #e74c3c);
+  background-size: 200% 200%;
+  animation: gradientPulse 8s ease infinite;
+  z-index: 1;
+  opacity: 0;
+  border-radius: 15px;
+  transition: opacity 0.5s ease;
+}
+
+.about-image:hover::before {
+  opacity: 0.15;
+}
+
+@keyframes gradientPulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-content {
+    gap: 40px;
+  }
+  
+  .about-text {
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  
+  .about-text {
+    padding-right: 0;
+    text-align: left;
+    animation-delay: 0.2s;
+  }
+  
+  .about-image {
+    width: 70%;
+    max-width: 320px;
+    order: -1;
+    animation-delay: 0s;
+  }
+  
+  .about-text p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-image {
+    width: 85%;
+  }
+  
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-image {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .about-image img {
+    mix-blend-mode: normal;
+  }
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-text {
+    padding-right: 0;
+  }
+  
+  .about-image {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .section-line {
+    background: linear-gradient(90deg, #000, #000 50%, transparent 50%, transparent 100%);
+  }
+}
+@keyframes lineExpand {
+  to { width: 100%; }
+}
+/* Projects Section */
+#projects {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 1vw 100px;
+}
+
+.project {
+  margin: 0 2.5rem;
+  padding: 0 2rem;
+  position: relative;
+  bottom: 12rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.section-line {
+  width: 80px;
+  height: 4px;
+  background: #f39c12 ;
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+/* Project Cards Layout */
+.project-card {
+  display: flex;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+/* Alternate layout for even cards */
+.project-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.project-image {
+  flex: 1;
+  padding: 1rem;
+}
+
+.project-image img {
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+  transform: scale(1.03);
+}
+
+.project-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.project-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.project-content p {
+  color:black;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1.5rem;
+  font-size: 1.45rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .project-card {
+    flex-direction: column;
+  }
+  
+  .project-card:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .project-image, 
+  .project-content {
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .project-image img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .project {
+    margin: 0 1rem;
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .project-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .project-content p {
+    font-size: 0.95rem;
+  }
+}
+/* Experience Section */
+
+#experience{
+  padding-left: 2rem;
+  position: relative;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  bottom: 11rem;
+}
+.experience-item h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+.experience-item  p {
+  color:black;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1.5rem;
+  font-size: 1.45rem;
+}
+
+/* Contact Section */
+#contact{
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  padding-left: 2rem;
+  position: relative;
+  bottom: 9.5rem;
+  padding-right: 2rem;
+}
+  #button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #000;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  #button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-label {
+  font-size: 1.1rem;
+  color: #666;
+  min-width: 100px;
+}
+
+.contact-link {
+  font-size: 1.1rem;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #ff3366;
+}
+
+.contact-link:hover::after {
+  width: 100%;
+  background: #ff3366;
+}
+ #contact p{
+   color:black;
+  line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1.5rem;
+  font-size: 1.45rem;
+ }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 80px 5vw;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .contact-label {
+    min-width: auto;
+  }
+  
+  .experience-item {
+    margin-bottom: 40px;
+  }
+}
+
+footer {
+  background: #0a0a0a;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #f39c12, #e74c3c, #f39c12);
+  background-size: 200% 200%;
+  animation: gradientFooter 3s ease infinite;
+}
+
+@keyframes gradientFooter {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: rgba(243, 156, 18, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: multiply;
+  transition: 
+    transform 0.15s ease-out,
+    width 0.3s ease-in-out,
+    height 0.3s ease-in-out;
+}
+
+.cursor-dot.pulse {
+  width: 100px;
+  height: 100px;
+  background: rgba(231, 76, 60, 0.7);
+}
+
+.cursor-dot.active {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: rgba(231, 76, 60, 0.7);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #f39c12, #e74c3c);
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header p {
+    font-size: 4rem;
+    margin-right: 20px;
+  }
+  
+  header .para {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  
+  header .web {
+    bottom: 100px;
+    left: 50px;
+  }
+  
+  header .live {
+    bottom: 130px;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header p {
+    font-size: 3rem;
+  text-align: center;
+    margin-right: 0;
+  }
+  
+  header .para {
+    text-align: center;
+    margin-left: 0;
+  }
+  
+  header .web, header .live {
+    position: static;
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
